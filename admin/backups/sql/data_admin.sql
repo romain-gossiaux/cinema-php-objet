@@ -1,0 +1,1 @@
+insert into admin(login ,password, nom) values ('admin','admin', 'Superadmin');
