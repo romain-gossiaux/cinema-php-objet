@@ -54,4 +54,18 @@ class SeanceDAO
         }
     }
 
+    public function deleteSeance($id)
+    {
+        $query = "select delete_seance(:id_seance)";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->bindValue(':id_seance', $id);
+            $stmt->execute();
+            $this->_bd->commit();
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print $e->getMessage();
+        }
+    }
 }
