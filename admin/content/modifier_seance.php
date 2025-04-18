@@ -1,10 +1,27 @@
 <?php
 $vue_seances_films = new Vue_seances_filmsDAO($cnx);
 $seances = $vue_seances_films->getAllSeance();
-?>
+
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    $message_type = $_SESSION['message_type'];
+    unset($_SESSION['message']);
+    unset($_SESSION['message_type']);
+
+    $alert_class = ($message_type == 'success') ? 'alert-success' : 'alert-danger';
+    ?>
+
+    <div class="alert <?php echo $alert_class; ?> alert-dismissible fade show mx-auto mt-4" style="max-width: 600px" role="alert">
+        <?php echo $message; ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php } ?>
 <div class="container">
     <h2 class="my-4">Liste des Séances</h2>
-    <?php foreach ($seances as $seance): ?>
+    <?php
+    if (!is_null($seances)){
+    foreach ($seances as $seance):
+        ?>
         <div class="seance-card">
             <div class="d-flex align-items-center">
                 <img src="assets/images/<?= $seance->getAffiche() ?>" alt="Affiche">
@@ -23,13 +40,6 @@ $seances = $vue_seances_films->getAllSeance();
                 </a>
             </div>
         </div>
-    <?php endforeach; ?>
+    <?php endforeach; }?>
 </div>
-<?php if (isset($_SESSION['success'])): ?>
-    <div class="alert alert-success"><?= $_SESSION['success']; unset($_SESSION['success']); ?></div>
-<?php endif; ?>
-
-<?php if (isset($_SESSION['error'])): ?>
-    <div class="alert alert-danger"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
-<?php endif; ?>
 

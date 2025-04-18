@@ -1,15 +1,14 @@
 <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $dao = new SeanceDAO($cnx);
-
-    if ($dao->deleteSeance($id)) {
-        $_SESSION['success'] = "La séance a bien été supprimée." . $id;
-    } else {
-        $_SESSION['error'] = "Erreur lors de la suppression de la séance." . $id;
-    }
+    $seance = new SeanceDAO($cnx);
+}
+if ($seance->deleteSeance($id)) {
+    $_SESSION['message'] = "La séance a été supprimée avec succès.";
+    $_SESSION['message_type'] = "success"; // Succès
 } else {
-    $_SESSION['error'] = "ID de séance invalide.";
+    $_SESSION['message'] = "Une erreur est survenue lors de la suppression.";
+    $_SESSION['message_type'] = "error"; // Erreur
 }
 
 // Redirection vers la page de gestion

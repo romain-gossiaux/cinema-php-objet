@@ -62,7 +62,9 @@ class SeanceDAO
             $stmt = $this->_bd->prepare($query);
             $stmt->bindValue(':id_seance', $id);
             $stmt->execute();
+            $retour = $stmt->fetchColumn(0);
             $this->_bd->commit();
+            return $retour;
         } catch (PDOException $e) {
             $this->_bd->rollBack();
             print $e->getMessage();
