@@ -10,16 +10,14 @@ CREATE TABLE film (
 CREATE TABLE seance (
     id SERIAL PRIMARY KEY,
     id_film INT REFERENCES film(id),
-    date_heure TIMESTAMP,
-    salle TEXT
+    date_heure TIMESTAMP
 );
 
 CREATE TABLE reservation (
     id SERIAL PRIMARY KEY,
     nom TEXT,
     email TEXT,
-    id_seance INT REFERENCES seance(id),
-    nb_places INT
+    id_seance INT REFERENCES seance(id)
 );
 
 CREATE TABLE admin (

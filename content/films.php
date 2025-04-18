@@ -1,13 +1,13 @@
 <?php
 $film = new FilmDAO($cnx);
-$liste = $film->getFilm();
+$films = $film->getFilm();
 
-if (is_null($liste)) {
+if (is_null($films)) {
     print "<br>Pas de films disponibles";
 }
 else {
     print "Films disponibles:<br>";
-    foreach ($liste as $film) {
-        echo "<img src='./admin/assets/images/" . $film->affiche . "' width='400'><br>";
+    foreach ($films as $film) {
+        echo "<img src='./admin/assets/images/" . $film->affiche . "'><br>";
     }
 }
