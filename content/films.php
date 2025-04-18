@@ -8,6 +8,6 @@ if (is_null($liste)) {
 else {
     print "Films disponibles:<br>";
     foreach ($liste as $film) {
-        echo "<img src='./admin/assets/images/" . $film->affiche . "' width='400'><br>";
+        echo "<img src='./admin/assets/images/" . $film->affiche . "'><br>";
     }
 }
