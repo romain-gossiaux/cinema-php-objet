@@ -1,5 +1,6 @@
 CREATE TABLE film (
     id SERIAL PRIMARY KEY,
+    realisateur TEXT,
     titre TEXT,
     description TEXT,
     duree INT,
