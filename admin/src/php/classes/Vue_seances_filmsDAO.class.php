@@ -32,4 +32,25 @@ class Vue_seances_filmsDAO
             print "Echec de la requête " . $e->getMessage();
         }
     }
+
+    public function updateSeance($id, $date_heure)
+    {
+        $query = "select update_seance(:id,:date_heure) as retour";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->bindValue(':id', $id);
+            $stmt->bindValue(':date_heure', $date_heure);
+            $stmt->execute();
+            $retour = $stmt->fetchColumn(0);
+            $this->_bd->commit();
+            if ($retour == -1) {
+                return -1;
+            }
+            return $retour;
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print "Echec : " . $e->getMessage();
+        }
+    }
 }

@@ -2,6 +2,22 @@
 $vue_seances_films = new Vue_seances_filmsDAO($cnx);
 $seances = $vue_seances_films->getAllSeance();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_seance = $_POST['id_seance'];
+    $date_heure = $_POST['date_heure'];
+    $success = $vue_seances_films->updateSeance($id_seance, $date_heure);
+
+    if ($success) {
+        $_SESSION['message'] = "La séance a bien été modifiée.";
+        $_SESSION['message_type'] = "success";
+    } else {
+        $_SESSION['message'] = "Erreur lors de la modification.";
+        $_SESSION['message_type'] = "error";
+    }
+    header('Location: index_.php?page=modifier_seance.php');
+    exit;
+}
+
 if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
     $message_type = $_SESSION['message_type'];
@@ -32,12 +48,25 @@ if (isset($_SESSION['message'])) {
                 </div>
             </div>
             <div class="d-flex flex-column gap-2">
-                <a href="index_.php?page=modifier_seance_form.php&id=<?= $seance->getIdSeance() ?>" class="btn btn-modifier">Modifier</a>
+                <button class="btn btn-modifier" onclick="toggleForm(<?= $seance->getIdSeance() ?>)">Modifier</button>
                 <a href="index_.php?page=supprimer_seance.php&id=<?= $seance->getIdSeance() ?>"
                    class="btn btn-supprimer"
                    onclick="return confirm('Confirmer la suppression de cette séance ?');">
                     Supprimer
                 </a>
+                <div id="form-<?= $seance->getIdSeance() ?>" class="mt-3" style="display: none;">
+                    <form method="post" action="index_.php?page=modifier_seance.php">
+                        <input type="hidden" name="id_seance" value="<?= $seance->getIdSeance() ?>">
+
+                        <div class="mb-2">
+                            <label class="form-label">Date et heure</label>
+                            <input type="datetime-local" class="form-control" name="date_heure"
+                                   value="<?= date('Y-m-d\TH:i', strtotime($seance->getDateHeure())) ?>" required>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Enregistrer</button>
+                    </form>
+                </div>
+
             </div>
         </div>
     <?php endforeach; }?>
