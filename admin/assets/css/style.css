@@ -209,3 +209,61 @@ body {
 .public-btn-reserver:hover {
     background-color: #e0b700;
 }
+
+.next-seance-box {
+    background-color: #2c3e50; /* Fond sombre */
+    border-radius: 12px; /* Coins arrondis */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Ombre plus marquée pour donner de la profondeur */
+    padding: 40px;
+    max-width: 900px; /* Largeur encore plus grande */
+    margin: 40px auto; /* Centrer la carte */
+    color: #ecf0f1; /* Texte clair pour un meilleur contraste */
+}
+
+.next-seance-img {
+    height: 220px; /* Taille plus grande pour l'image */
+    width: auto;
+    border-radius: 10px;
+}
+
+.next-seance-title {
+    font-size: 2.2rem; /* Taille du titre augmentée */
+    font-weight: bold;
+    color: #ffcc00; /* Jaune IMDb */
+    margin-bottom: 15px; /* Espacement sous le titre */
+}
+
+.next-seance-details {
+    font-size: 1.3rem; /* Taille du texte des détails augmentée */
+    margin-bottom: 30px; /* Espacement sous les détails */
+}
+
+.next-seance-btn {
+    background-color: #ffcc00; /* Jaune IMDb */
+    border: none;
+    color: #333;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.next-seance-btn:hover {
+    background-color: #f39c12; /* Jaune un peu plus foncé au survol */
+    transform: scale(1.08); /* Légère augmentation de taille au survol pour un effet interactif */
+}
+
+.next-seance-btn:focus {
+    outline: none;
+}
+
+.carousel-item {
+    transition: transform 0.6s ease-in-out;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000000cc;
+}

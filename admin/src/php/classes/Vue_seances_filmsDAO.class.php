@@ -33,6 +33,45 @@ class Vue_seances_filmsDAO
         }
     }
 
+    public function getNextSeance()
+    {
+        $query = "SELECT * FROM get_next_seance()";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->execute();
+            $retour = $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->_bd->commit();
+            if ($retour == -1) {
+                return -1;
+            }
+            return new Vue_seances_films($retour);
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print "Echec : " . $e->getMessage();
+        }
+    }
+
+    public function getFilmsALAffiche($nb)
+    {
+        $query = "SELECT * FROM get_films_a_l_affiche(:nb)";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->bindValue(':nb', $nb);
+            $stmt->execute();
+            $retour = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $this->_bd->commit();
+            if ($retour == -1) {
+                return -1;
+            }
+            return $retour;
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print "Echec : " . $e->getMessage();
+        }
+    }
+
     public function updateSeance($id, $date_heure)
     {
         $query = "select update_seance(:id,:date_heure) as retour";
