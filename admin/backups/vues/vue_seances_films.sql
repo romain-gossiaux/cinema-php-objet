@@ -8,5 +8,5 @@ SELECT
     f.affiche
 FROM
     seance s
-        JOIN
+JOIN
     film f ON s.id_film = f.id;
