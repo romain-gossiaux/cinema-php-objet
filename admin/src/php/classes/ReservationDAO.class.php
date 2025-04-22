@@ -54,5 +54,21 @@ class ReservationDAO
             return -1;
         }
     }
+    public function deleteReservation($id)
+    {
+        $query = "select delete_reservation(:id_reservation)";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->bindValue(':id_reservation', $id);
+            $stmt->execute();
+            $retour = $stmt->fetchColumn(0);
+            $this->_bd->commit();
+            return $retour;
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print $e->getMessage();
+        }
+    }
 
 }

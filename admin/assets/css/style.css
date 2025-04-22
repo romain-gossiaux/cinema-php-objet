@@ -267,3 +267,57 @@ body {
 .carousel-control-next-icon {
     background-color: #000000cc;
 }
+
+/* Tableau sous forme de divs : Style IMDb */
+.card {
+    background-color: #121212; /* Fond sombre pour la carte */
+    border: 1px solid #333; /* Bordure plus claire */
+    color: #fff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    height: 100%; /* Permet de garder une hauteur uniforme */
+}
+
+.card:hover {
+    background-color: #333; /* Survol de la carte */
+    transform: scale(1.05); /* Agrandissement au survol */
+}
+
+.card-title {
+    color: #FFD700; /* Jaune IMDb pour les titres */
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 16px; /* Agrandissement des informations */
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card .btn-danger {
+    background-color: #e50914; /* Rouge IMDb pour le bouton de suppression */
+    border: none;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.card .btn-danger:hover {
+    background-color: #b40612; /* Rouge plus foncé au survol */
+}
+
+.card .btn-danger:active {
+    background-color: #e50914; /* Rouge standard quand le bouton est cliqué */
+}
+
+/* Espace pour les messages d'alerte */
+.alert {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+

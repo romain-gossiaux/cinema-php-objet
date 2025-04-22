@@ -17,15 +17,7 @@ $films_a_l_affiche = $vue_seances_films->getFilmsALAffiche(3);
     <div class="row justify-content-center">
         <div id="carouselFilmsAffiche" class="carousel slide" data-bs-ride="carousel" style="max-width: 1000px;">
             <div class="carousel-inner rounded shadow">
-
-                <?php
-                $stmt = $cnx->prepare("SELECT * FROM get_films_a_l_affiche(:nb)");
-                $stmt->bindValue(':nb', 3, PDO::PARAM_INT);
-                $stmt->execute();
-                $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                ?>
-
-                <?php foreach ($films as $index => $film): ?>
+                <?php foreach ($films_a_l_affiche as $index => $film): ?>
                     <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
                         <div class="row g-4 align-items-center bg-dark text-white p-4 rounded" style="min-height: 400px;">
                             <div class="col-md-5 text-center">
