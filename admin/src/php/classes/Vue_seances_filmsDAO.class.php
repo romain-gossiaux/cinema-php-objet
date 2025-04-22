@@ -33,6 +33,26 @@ class Vue_seances_filmsDAO
         }
     }
 
+    public function getSeanceById($id)
+    {
+        $query = "select * from vue_seances_films where id_seance = :id";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+            $retour = $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->_bd->commit();
+            if ($retour == -1) {
+                return -1;
+            }
+            return new Vue_seances_films($retour);
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print "Echec : " . $e->getMessage();
+        }
+    }
+
     public function getNextSeance()
     {
         $query = "SELECT * FROM get_next_seance()";
