@@ -7,9 +7,22 @@ $id_seance = (int) $_GET['id'];
 
 $seanceDAO = new Vue_seances_filmsDAO($cnx);
 $seance = $seanceDAO->getSeanceById($id_seance);
-?>
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    $message_type = $_SESSION['message_type'];
+    unset($_SESSION['message']);
+    unset($_SESSION['message_type']);
 
-<?php if ($seance): ?>
+    $alert_class = ($message_type == 'success') ? 'alert-success' : 'alert-danger';
+    ?>
+
+    <div class="alert <?php echo $alert_class; ?> alert-dismissible fade show mx-auto mt-4" style="max-width: 600px" role="alert">
+        <?php echo $message; ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php } ?>
+
+<?php if ($seance and $message_type == 'success'): ?>
     <div class="container my-5">
         <div class="text-center text-light mb-4">
             <h2 class="display-5 text-warning">🎟 Réservation confirmée !</h2>
