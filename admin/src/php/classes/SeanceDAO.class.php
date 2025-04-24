@@ -35,6 +35,25 @@ class SeanceDAO
         }
     }
 
+    public function countAll()
+    {
+        $query = "select COUNT(*) from seance";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->execute();
+            $retour = $stmt->fetchColumn(0);
+            $this->_bd->commit();
+            if ($retour == -1) {
+                return -1;
+            }
+            return $retour;
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print "Echec : " . $e->getMessage();
+        }
+    }
+
     public function addSeance($id_film, $date_heure)
     {
         $query = "select add_seance(:id_film, :date_heure) as retour";

@@ -34,5 +34,23 @@ class FilmDAO
             print "Echec de la requête " . $e->getMessage();
         }
     }
+    public function countAll()
+    {
+        $query = "select COUNT(*) from film";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->execute();
+            $retour = $stmt->fetchColumn(0);
+            $this->_bd->commit();
+            if ($retour == -1) {
+                return -1;
+            }
+            return $retour;
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print "Echec : " . $e->getMessage();
+        }
+    }
 
 }

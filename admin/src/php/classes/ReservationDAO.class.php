@@ -35,6 +35,24 @@ class ReservationDAO
         }
     }
 
+    public function countAll()
+    {
+        $query = "select COUNT(*) from reservation";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->execute();
+            $retour = $stmt->fetchColumn(0);
+            $this->_bd->commit();
+            if ($retour == -1) {
+                return -1;
+            }
+            return $retour;
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print "Echec : " . $e->getMessage();
+        }
+    }
     public function addReservation($nom, $email, $id_seance)
     {
         $query = "select add_reservation(:nom, :email, :id_seance) as retour";
