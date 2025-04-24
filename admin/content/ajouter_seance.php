@@ -38,3 +38,6 @@ if (isset($_POST['ajouter_seance'])) {
         <button type="submit" class="btn-submit" name="ajouter_seance">➕ Ajouter la séance</button>
     </form>
 </div>
+<div id="dialog-error" title="Date invalide" style="display: none;">
+    <p>Veuillez saisir une date prévue dans le futur.</p>
+</div>

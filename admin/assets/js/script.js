@@ -3,6 +3,30 @@ $(document).ready(function () {
     handleDeleteClick('.delete-reservation');
 });
 
+$('#form-ajout-seance').on('submit', function(e) {
+    const now = new Date();
+    now.setSeconds(0, 0);
+    const selected = new Date($('#imdb-datetime').val());
+
+    if (selected <= now) {
+        e.preventDefault();
+        $("#dialog-error").dialog({
+            resizable: false,
+            modal: true,
+            draggable: false,
+            buttons: [
+                {
+                    text: "OK",
+                    class: "btn-cancel",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+                ]
+        });
+    }
+});
+
 $(function () {
     $('#imdb-datetime').datetimepicker({
         dateFormat: 'yy-mm-dd',
@@ -11,17 +35,6 @@ $(function () {
         controlType: 'select',
         showButtonPanel: true
     });
-});
-
-$('#form-ajout-seance').on('submit', function(e) {
-    const now = new Date();
-    now.setSeconds(0, 0);
-    const selected = new Date($('#imdb-datetime').val());
-
-    if (selected <= now) {
-        e.preventDefault();
-        alert("La séance doit être prévue dans le futur.");
-    }
 });
 
 function toggleForm(id) {

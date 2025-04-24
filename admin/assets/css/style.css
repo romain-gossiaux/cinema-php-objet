@@ -446,6 +446,18 @@ body {
     color: #f0f0f0; /* Plus clair que le gris par défaut */
 }
 
+#dialog-error {
+    color: #f0f0f0; /* Texte plus clair */
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#dialog-error p {
+    margin: 0;
+    padding: 10px 0;
+    color: #f0f0f0; /* Plus clair que le gris par défaut */
+}
+
 .imdb-datetime-wrapper {
     margin: 1em 0;
 }
