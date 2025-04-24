@@ -70,4 +70,7 @@ if (isset($_SESSION['message'])) {
         </div>
     <?php endforeach; }?>
 </div>
+<div id="dialog-confirm" title="Confirmation" style="display: none;">
+    <p>Voulez-vous vraiment supprimer cette séance ? Cette action entraînera la suppression de toutes les réservations liées à cette séance.</p>
+</div>
 

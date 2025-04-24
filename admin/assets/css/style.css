@@ -386,6 +386,65 @@ body {
     margin-bottom: 8px;
 }
 
+/* Style sombre IMDb-like pour le dialog */
+.ui-dialog {
+    background: #1e1e1e;
+    border: 1px solid #555;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.ui-dialog-titlebar {
+    background: #121212;
+    border: none;
+    color: #f5c518;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.ui-dialog-titlebar-close {
+    background: none;
+    border: none;
+    color: #f5c518;
+}
+
+.ui-dialog-buttonpane {
+    background: #1e1e1e;
+    border-top: 1px solid #333;
+}
+
+.ui-dialog-buttonset button {
+    padding: 8px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-confirm {
+    background-color: #f5c518;
+    color: #000;
+}
+
+.btn-cancel {
+    background-color: #444;
+    color: #fff;
+}
+
+#dialog-confirm {
+    color: #f0f0f0; /* Texte plus clair */
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#dialog-confirm p {
+    margin: 0;
+    padding: 10px 0;
+    color: #f0f0f0; /* Plus clair que le gris par défaut */
+}
 
 
 

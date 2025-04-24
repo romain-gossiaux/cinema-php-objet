@@ -50,7 +50,9 @@ if (isset($_SESSION['message'])) {
         <?php endif; ?>
     </div>
 </div>
-
+<div id="dialog-confirm" title="Confirmation" style="display: none;">
+    <p>Voulez-vous vraiment supprimer cette réservation ?</p>
+</div>
 
 
 
