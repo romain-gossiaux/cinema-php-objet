@@ -34,7 +34,7 @@ if (isset($_SESSION['message'])) {
                                 <strong>Email :</strong> <?= $reservation->email ?><br>
                                 <strong>Séance :</strong> <?= date("d/m/Y à H:i", strtotime($seance->getDateHeure())) ?>
                             </p>
-                            <a href="index_.php?page=reservation_supprimer.php&id=<?= $reservation->id ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette réservation ?');">
+                            <a href="index_.php?page=reservation_supprimer.php&id=<?= $reservation->id ?>" class="btn btn-danger delete-reservation">
                                 Supprimer
                             </a>
                         </div>

@@ -3,17 +3,23 @@ function toggleForm(id) {
     $form.toggle();
 }
 
-$(document).ready(function() {
-    // Quand le document est entièrement chargé...
-    $('.delete-seance').on('click', function(e) {
-        e.preventDefault(); // Empêche le comportement par défaut du lien (qui est de rediriger)
+$(document).ready(function () {
+    // Fonction générique de confirmation de suppression
+    function attachDeleteHandler(selector, message) {
+        $(selector).on('click', function (e) {
+            e.preventDefault(); // Empêche le lien de rediriger immédiatement
 
-        const url = $(this).attr('href'); // Récupère l'URL du lien
-        const confirmDelete = confirm('Confirmer la suppression de cette séance ?'); // Affiche une boîte de confirmation
+            const url = $(this).attr('href');
+            const confirmDelete = confirm(message);
 
-        if (confirmDelete) {
-            console.log(url);
-            window.location.href = url; // Si l'utilisateur confirme, on redirige vers l'URL (c'est-à-dire supprimer la séance)
-        }
-    });
+            if (confirmDelete) {
+                console.log(`Suppression confirmée pour : ${url}`);
+                window.location.href = url;
+            }
+        });
+    }
+
+    // Appliquer la fonction à différents boutons
+    attachDeleteHandler('.delete-seance', 'Confirmer la suppression de cette séance ?');
+    attachDeleteHandler('.delete-reservation', 'Confirmer la suppression de cette réservation ?');
 });
