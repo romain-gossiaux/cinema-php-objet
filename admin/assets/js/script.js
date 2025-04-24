@@ -1,3 +1,29 @@
+$(document).ready(function () {
+    handleDeleteClick('.delete-seance');
+    handleDeleteClick('.delete-reservation');
+});
+
+$(function () {
+    $('#imdb-datetime').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'HH:mm',
+        stepMinute: 30,
+        controlType: 'select',
+        showButtonPanel: true
+    });
+});
+
+$('#form-ajout-seance').on('submit', function(e) {
+    const now = new Date();
+    now.setSeconds(0, 0);
+    const selected = new Date($('#imdb-datetime').val());
+
+    if (selected <= now) {
+        e.preventDefault();
+        alert("La séance doit être prévue dans le futur.");
+    }
+});
+
 function toggleForm(id) {
     const $form = $('#form-' + id);
     $form.toggle();
@@ -31,8 +57,3 @@ function handleDeleteClick(className) {
         });
     });
 }
-
-$(document).ready(function () {
-    handleDeleteClick('.delete-seance');
-    handleDeleteClick('.delete-reservation');
-});

@@ -446,7 +446,69 @@ body {
     color: #f0f0f0; /* Plus clair que le gris par défaut */
 }
 
+.imdb-datetime-wrapper {
+    margin: 1em 0;
+}
 
+.imdb-datetime-wrapper label {
+    font-size: 1.1em;
+    color: #f5c518; /* IMDb yellow */
+}
+
+.imdb-datetime {
+    background-color: #1f1f1f;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    width: 250px;
+}
+
+/* Ciblage spécifique du datepicker sans override global */
+#ui-datepicker-div,
+.ui-datepicker,
+.ui-timepicker-div {
+    background-color: #1f1f1f !important;
+    border: 1px solid #f5c518 !important;
+    color: #fff !important;
+    font-family: Arial, sans-serif;
+}
+
+.ui-datepicker .ui-datepicker-header {
+    background: #000 !important;
+    border: none;
+    color: #f5c518 !important;
+}
+
+/* Fond noir pour les cases du calendrier */
+.ui-datepicker td {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333 !important;
+}
+
+/* Style du lien de jour (numéro du jour) */
+.ui-datepicker td a {
+    background-color: transparent !important;
+    color: #f5c518 !important;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 4px;
+}
+
+/* Hover / sélection d’un jour */
+.ui-datepicker td a:hover,
+.ui-datepicker td a.ui-state-hover {
+    background-color: #333 !important;
+    color: #ffffff !important;
+}
+
+/* Jour sélectionné */
+.ui-datepicker .ui-state-active {
+    background-color: #f5c518 !important;
+    color: #000 !important;
+}
 
 
 
