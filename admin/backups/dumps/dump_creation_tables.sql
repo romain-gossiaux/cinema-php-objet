@@ -18,7 +18,7 @@ CREATE TABLE reservation (
     id SERIAL PRIMARY KEY,
     nom TEXT,
     email TEXT,
-    id_seance INT REFERENCES seance(id)
+    id_seance INT REFERENCES seance(id) ON DELETE CASCADE
 );
 
 CREATE TABLE admin (

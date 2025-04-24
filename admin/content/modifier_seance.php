@@ -50,8 +50,7 @@ if (isset($_SESSION['message'])) {
             <div class="d-flex flex-column gap-2">
                 <button class="btn btn-modifier" onclick="toggleForm(<?= $seance->getIdSeance() ?>)">Modifier</button>
                 <a href="index_.php?page=supprimer_seance.php&id=<?= $seance->getIdSeance() ?>"
-                   class="btn btn-supprimer"
-                   onclick="return confirm('Confirmer la suppression de cette séance ?');">
+                   class="btn btn-supprimer delete-seance">
                     Supprimer
                 </a>
                 <div id="form-<?= $seance->getIdSeance() ?>" class="mt-3" style="display: none;">
