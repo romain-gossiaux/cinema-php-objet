@@ -522,5 +522,24 @@ body {
     color: #000 !important;
 }
 
+.reservation-card {
+    background-color: #121212;
+    border: 1px solid #333;
+    position: relative;
+}
 
+.reservation-poster-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    z-index: 1;
+}
 
+.reservation-poster {
+    height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}

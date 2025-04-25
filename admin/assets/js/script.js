@@ -27,6 +27,31 @@ $('#form-ajout-seance').on('submit', function(e) {
     }
 });
 
+$('.reservation-card').hover(
+    function () {
+        const card = $(this);
+        const idSeance = card.data('id-seance');
+        const reservationPosterContainer = card.find('.reservation-poster-container');
+
+        $.ajax({
+            url: 'src/php/ajax/ajax_get_poster.php',
+            type: 'GET',
+            dataType: 'json',
+            data: { id_seance: idSeance },
+            success: function (data) {
+                reservationPosterContainer.find('img').attr('src', 'assets/images/' + data);
+                reservationPosterContainer.stop(true, true).fadeIn(200);
+            },
+            error: function () {
+                console.log('Erreur AJAX récupération affiche');
+            }
+        });
+    },
+    function () {
+        const container = $(this).find('.reservation-poster-container').stop(true, true).fadeOut(200);
+    }
+);
+
 $(function () {
     $('#imdb-datetime').datetimepicker({
         dateFormat: 'yy-mm-dd',

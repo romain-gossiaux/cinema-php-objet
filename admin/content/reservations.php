@@ -26,7 +26,7 @@ if (isset($_SESSION['message'])) {
             <?php foreach ($reservations as $reservation):
                 $seance = $vue_seances_filmsDAO->getSeanceById($reservation->id_seance); ?>
                 <div class="col-md-4 mb-4">
-                    <div class="card text-light" style="background-color: #121212; border: 1px solid #333;">
+                    <div class="card text-light reservation-card" data-id-seance="<?=$reservation->id_seance?>">
                         <div class="card-body">
                             <h5 class="card-title text-warning"><?= $seance->getTitre() ?></h5>
                             <p class="card-text">
@@ -34,6 +34,9 @@ if (isset($_SESSION['message'])) {
                                 <strong>Email :</strong> <?= $reservation->email ?><br>
                                 <strong>Séance :</strong> <?= date("d/m/Y à H:i", strtotime($seance->getDateHeure())) ?>
                             </p>
+                            <div class="reservation-poster-container">
+                                <img src="" alt="Affiche du film" class="reservation-poster">
+                            </div>
                             <a href="index_.php?page=reservation_supprimer.php&id=<?= $reservation->id ?>" class="btn btn-danger delete-reservation">
                                 Supprimer
                             </a>

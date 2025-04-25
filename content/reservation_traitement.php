@@ -8,10 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $reservation = new ReservationDAO($cnx);
         $result = $reservation->addReservation($nom, $email, $id_seance);
 
-        $_SESSION['message'] = $result != -1 ? "Réservation effectuée !" : "Erreur lors de la réservation.";
         $_SESSION['message_type'] = $result != -1 ? "success" : "error";
     } else {
-        $_SESSION['message'] = "Champs invalides.";
         $_SESSION['message_type'] = "error";
     }
 

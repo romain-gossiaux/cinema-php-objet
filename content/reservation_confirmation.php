@@ -7,20 +7,11 @@ $id_seance = (int) $_GET['id'];
 
 $seanceDAO = new Vue_seances_filmsDAO($cnx);
 $seance = $seanceDAO->getSeanceById($id_seance);
-if (isset($_SESSION['message'])) {
-    $message = $_SESSION['message'];
+if (isset($_SESSION['message_type'])) {
     $message_type = $_SESSION['message_type'];
-    unset($_SESSION['message']);
     unset($_SESSION['message_type']);
-
-    $alert_class = ($message_type == 'success') ? 'alert-success' : 'alert-danger';
-    ?>
-
-    <div class="alert <?php echo $alert_class; ?> alert-dismissible fade show mx-auto mt-4" style="max-width: 600px" role="alert">
-        <?php echo $message; ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-<?php } ?>
+}
+?>
 
 <?php if ($seance and $message_type == 'success'): ?>
     <div class="container my-5">
@@ -51,6 +42,6 @@ if (isset($_SESSION['message'])) {
 <?php else: ?>
     <div class="text-center text-light">
         <h2>Séance introuvable.</h2>
-        <a href="index_.php" class="btn btn-outline-light mt-3">Retour à l'accueil</a>
+        <a href="index_.php?page=accueil.php" class="btn btn-outline-light mt-3">Retour à l'accueil</a>
     </div>
 <?php endif; ?>

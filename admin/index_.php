@@ -2,6 +2,7 @@
 session_start();
 include('./src/php/utils/header.php');
 include('./src/php/utils/all_includes.php');
+require ('src/php/utils/check_connection.php');
 ?>
 <!DOCTYPE html>
 <html>

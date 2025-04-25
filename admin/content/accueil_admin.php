@@ -1,5 +1,4 @@
 <?php
-require ('src/php/utils/check_connection.php');
 $filmDAO = new FilmDAO($cnx);
 $seanceDAO = new SeanceDAO($cnx);
 $reservationDAO = new ReservationDAO($cnx)
