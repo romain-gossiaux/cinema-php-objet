@@ -1,7 +1,6 @@
 $(document).ready(function () {
     handleDeleteClick('.delete-seance');
     handleDeleteClick('.delete-reservation');
-    $('#search-film').trigger('keyup');
 });
 
 $('#search-film').on('keyup', function() {
