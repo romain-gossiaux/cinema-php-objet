@@ -1,7 +1,7 @@
 <?php
 $seance = new SeanceDAO($cnx);
 $film = new FilmDAO($cnx);
-$films = $film->getFilm();
+$films = $film->getFilms();
 
 if (isset($_POST['ajouter_seance'])) {
     $idFilm = $_POST['id_film'];

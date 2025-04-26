@@ -1,6 +1,45 @@
 $(document).ready(function () {
     handleDeleteClick('.delete-seance');
     handleDeleteClick('.delete-reservation');
+    $('#search-film').trigger('keyup');
+});
+
+$('#search-film').on('keyup', function() {
+    let query = $(this).val();
+    $.ajax({
+        url: 'admin/src/php/ajax/ajax_search_films.php',
+        type: 'GET',
+        dataType: 'json',
+        data: { search: query },
+        success: function(films) {
+            $('#films-list').empty(); // Vide les résultats précédents
+
+            if (films.length > 0) {
+                films.forEach(function(film) {
+                    $('#films-list').append(`
+                            <div class="col-md-4">
+                                <div class="card film-card h-100 shadow">
+                                    <img src="admin/assets/images/${film.affiche}" class="card-img-top" alt="${film.titre}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${film.titre}</h5>
+                                        <p class="card-text"><strong>Réalisateur :</strong> ${film.realisateur}</p>
+                                        <p class="card-text"><strong>Durée :</strong> ${film.duree} min</p>
+                                        <p class="card-text"><strong>Synopsis :</strong> ${film.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                });
+            } else {
+                $('#films-list').html('<div class="col-12 text-center text-warning">Aucun film trouvé.</div>');
+            }
+        },
+        error: function() {
+            console.log(query);
+            console.log(this.data);
+            console.error("Erreur lors de la recherche AJAX.");
+        }
+    });
 });
 
 $('#form-ajout-seance').on('submit', function(e) {

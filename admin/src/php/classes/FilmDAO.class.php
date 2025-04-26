@@ -10,7 +10,7 @@ class FilmDAO
         $this->_bd = $cnx;
     }
 
-    public function getFilm()
+    public function getFilms()
     {
         $query = "select * from film";
         try {
@@ -34,6 +34,27 @@ class FilmDAO
             print "Echec de la requête " . $e->getMessage();
         }
     }
+
+    public function searchFilms($search)
+    {
+        $query = "SELECT * FROM get_searched_films(:search)";
+        try {
+            $this->_bd->beginTransaction();
+            $stmt = $this->_bd->prepare($query);
+            $stmt->bindValue(':search', $search);
+            $stmt->execute();
+            $retour = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $this->_bd->commit();
+            if ($retour == -1) {
+                return -1;
+            }
+            return $retour;
+        } catch (PDOException $e) {
+            $this->_bd->rollBack();
+            print "Echec : " . $e->getMessage();
+        }
+    }
+
     public function countAll()
     {
         $query = "select COUNT(*) from film";
