@@ -4,7 +4,7 @@ BEGIN
 	RETURN QUERY
 	SELECT *
 	FROM film
-	WHERE titre LIKE $1 || '%';
+	WHERE LOWER(titre) LIKE LOWER($1 || '%');
 END
 $$
 language 'plpgsql';
