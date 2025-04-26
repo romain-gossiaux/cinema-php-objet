@@ -12,7 +12,7 @@ class Vue_seances_filmsDAO
 
     public function getAllSeance()
     {
-        $query = "select * from vue_seances_films";
+        $query = "select * from vue_seances_films order by date_heure asc";
         try {
             $this->_bd->beginTransaction();
             $result = $this->_bd->prepare($query);
