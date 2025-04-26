@@ -13,7 +13,7 @@ if (isset($_SESSION['message'])) {
     $alert_class = ($message_type == 'success') ? 'alert-success' : 'alert-danger';
     ?>
 
-    <div class="alert <?php echo $alert_class; ?> alert-dismissible fade show mx-auto mt-4" style="max-width: 600px" role="alert">
+    <div class="alert <?php echo $alert_class; ?> alert-dismissible fade show mx-auto mt-4"  role="alert">
         <?php echo $message; ?>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -45,7 +45,7 @@ if (isset($_SESSION['message'])) {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="col-12">
+            <div class="col-4 mx-auto">
                 <div class="alert alert-warning text-center" role="alert">
                     Aucune réservation trouvée.
                 </div>

@@ -543,3 +543,7 @@ body {
     object-fit: cover;
     border-radius: 5px;
 }
+
+.alert{
+    max-width: 600px;
+}

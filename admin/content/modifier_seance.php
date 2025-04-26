@@ -32,10 +32,10 @@ if (isset($_SESSION['message'])) {
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <?php } ?>
-<div class="container">
-    <h2 class="my-4">Liste des Séances</h2>
+<div class="container my-5">
+    <h2 class="text-center mb-4">Liste des Séances</h2>
     <?php
-    if (!is_null($seances)){
+    if ($seances){
     foreach ($seances as $seance):
         ?>
         <div class="seance-card">
@@ -65,10 +65,16 @@ if (isset($_SESSION['message'])) {
                         <button type="submit" class="btn btn-warning">Enregistrer</button>
                     </form>
                 </div>
-
             </div>
         </div>
-    <?php endforeach; }?>
+    <?php endforeach; }
+    else{ ?>
+        <div class="col-4 mx-auto">
+            <div class="alert alert-warning text-center" role="alert">
+                Aucune séance trouvée.
+            </div>
+        </div>
+    <?php } ?>
 </div>
 <div id="dialog-confirm" title="Confirmation" style="display: none;">
     <p>Voulez-vous vraiment supprimer cette séance ? Cette action entraînera la suppression de toutes les réservations liées à cette séance.</p>
