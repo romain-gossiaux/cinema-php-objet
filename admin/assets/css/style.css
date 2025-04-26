@@ -211,17 +211,17 @@ body {
 }
 
 .next-seance-box {
-    background-color: #2c3e50; /* Fond sombre */
-    border-radius: 12px; /* Coins arrondis */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Ombre plus marquée pour donner de la profondeur */
+    background-color: #2c3e50;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     padding: 40px;
-    max-width: 900px; /* Largeur encore plus grande */
-    margin: 40px auto; /* Centrer la carte */
-    color: #ecf0f1; /* Texte clair pour un meilleur contraste */
+    color: #ecf0f1;
+    max-width: 600px;
+    margin: auto;
 }
 
 .next-seance-img {
-    height: 220px; /* Taille plus grande pour l'image */
+    height: 220px;
     width: auto;
     border-radius: 10px;
 }
@@ -252,8 +252,8 @@ body {
 }
 
 .next-seance-btn:hover {
-    background-color: #f39c12; /* Jaune un peu plus foncé au survol */
-    transform: scale(1.08); /* Légère augmentation de taille au survol pour un effet interactif */
+    background-color: #f39c12;
+    transform: scale(1.08);
 }
 
 .next-seance-btn:focus {
@@ -268,27 +268,26 @@ body {
     background-color: #000000cc;
 }
 
-/* Tableau sous forme de divs : Style IMDb */
 .card {
-    background-color: #121212; /* Fond sombre pour la carte */
-    border: 1px solid #333; /* Bordure plus claire */
+    background-color: #121212;
+    border: 1px solid #333;
     color: #fff;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    height: 100%; /* Permet de garder une hauteur uniforme */
+    height: 100%;
 }
 
 .card:hover {
-    background-color: #333; /* Survol de la carte */
-    transform: scale(1.05); /* Agrandissement au survol */
+    background-color: #333;
+    transform: scale(1.05);
 }
 
 .card-title {
-    color: #FFD700; /* Jaune IMDb pour les titres */
+    color: #FFD700;
     font-weight: bold;
 }
 
 .card-text {
-    font-size: 16px; /* Agrandissement des informations */
+    font-size: 16px;
 }
 
 .card-body {
@@ -296,46 +295,42 @@ body {
 }
 
 .card .btn-danger {
-    background-color: #e50914; /* Rouge IMDb pour le bouton de suppression */
+    background-color: #e50914;
     border: none;
     margin-top: 10px;
     text-align: center;
 }
 
 .card .btn-danger:hover {
-    background-color: #b40612; /* Rouge plus foncé au survol */
+    background-color: #b40612;
 }
 
 .card .btn-danger:active {
-    background-color: #e50914; /* Rouge standard quand le bouton est cliqué */
+    background-color: #e50914;
 }
 
-/* Espace pour les messages d'alerte */
 .alert {
     margin-bottom: 20px;
+    max-width: 600px;
 }
 
-/* Fond général */
 .admin-dashboard-bg {
     background-color: #0f0f0f;
     color: #ffffff;
     min-height: 100vh;
 }
 
-/* Titre principal */
 .admin-dashboard-title {
     font-size: 2.5rem;
     font-weight: bold;
     color: #f5c518;
 }
 
-/* Sous-titre */
 .admin-dashboard-subtitle {
     font-size: 1.2rem;
     color: #cccccc;
 }
 
-/* Cartes */
 .admin-dashboard-card {
     background-color: #1c1c1c;
     border: 1px solid #f5c518;
@@ -347,14 +342,12 @@ body {
     transform: translateY(-5px);
 }
 
-/* Titres de cartes */
 .admin-dashboard-card-title {
     color: #f5c518;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
-/* Boutons */
 .admin-dashboard-btn {
     background-color: #f5c518;
     color: #0f0f0f;
@@ -369,7 +362,6 @@ body {
     color: #0f0f0f;
 }
 
-/* Section des logs */
 .admin-dashboard-section-title {
     color: #f5c518;
     font-size: 1.5rem;
@@ -377,7 +369,6 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Logs */
 .admin-dashboard-log {
     background-color: #1c1c1c;
     color: #ffffff;
@@ -386,7 +377,6 @@ body {
     margin-bottom: 8px;
 }
 
-/* Style sombre IMDb-like pour le dialog */
 .ui-dialog {
     background: #1e1e1e;
     border: 1px solid #555;
@@ -435,7 +425,7 @@ body {
 }
 
 #dialog-confirm {
-    color: #f0f0f0; /* Texte plus clair */
+    color: #f0f0f0;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -443,11 +433,11 @@ body {
 #dialog-confirm p {
     margin: 0;
     padding: 10px 0;
-    color: #f0f0f0; /* Plus clair que le gris par défaut */
+    color: #f0f0f0;
 }
 
 #dialog-error {
-    color: #f0f0f0; /* Texte plus clair */
+    color: #f0f0f0;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -455,7 +445,7 @@ body {
 #dialog-error p {
     margin: 0;
     padding: 10px 0;
-    color: #f0f0f0; /* Plus clair que le gris par défaut */
+    color: #f0f0f0;
 }
 
 .imdb-datetime-wrapper {
@@ -464,7 +454,7 @@ body {
 
 .imdb-datetime-wrapper label {
     font-size: 1.1em;
-    color: #f5c518; /* IMDb yellow */
+    color: #f5c518;
 }
 
 .imdb-datetime {
@@ -476,7 +466,6 @@ body {
     width: 250px;
 }
 
-/* Ciblage spécifique du datepicker sans override global */
 #ui-datepicker-div,
 .ui-datepicker,
 .ui-timepicker-div {
@@ -492,13 +481,11 @@ body {
     color: #f5c518 !important;
 }
 
-/* Fond noir pour les cases du calendrier */
 .ui-datepicker td {
     background-color: #1a1a1a !important;
     border: 1px solid #333 !important;
 }
 
-/* Style du lien de jour (numéro du jour) */
 .ui-datepicker td a {
     background-color: transparent !important;
     color: #f5c518 !important;
@@ -509,14 +496,12 @@ body {
     border-radius: 4px;
 }
 
-/* Hover / sélection d’un jour */
 .ui-datepicker td a:hover,
 .ui-datepicker td a.ui-state-hover {
     background-color: #333 !important;
     color: #ffffff !important;
 }
 
-/* Jour sélectionné */
 .ui-datepicker .ui-state-active {
     background-color: #f5c518 !important;
     color: #000 !important;
@@ -544,6 +529,10 @@ body {
     border-radius: 5px;
 }
 
-.alert{
-    max-width: 600px;
+#carouselFilmsAffiche{
+    max-width: 900px;
+}
+
+#carousel-img{
+    max-height: 320px;
 }

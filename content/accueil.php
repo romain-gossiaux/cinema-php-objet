@@ -15,13 +15,13 @@ $films_a_l_affiche = $vue_seances_films->getFilmsALAffiche(3);
 
     <h2 class="text-light mb-4">À l'affiche</h2>
     <div class="row justify-content-center">
-        <div id="carouselFilmsAffiche" class="carousel slide" data-bs-ride="carousel" style="max-width: 1000px;">
+        <div id="carouselFilmsAffiche" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner rounded shadow">
                 <?php foreach ($films_a_l_affiche as $index => $film): ?>
                     <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
-                        <div class="row g-4 align-items-center bg-dark text-white p-4 rounded" style="min-height: 400px;">
+                        <div class="row g-4 align-items-center bg-dark text-white p-4 rounded">
                             <div class="col-md-5 text-center">
-                                <img src="admin/assets/images/<?= $film['affiche'] ?>" class="img-fluid rounded shadow" alt="<?= $film['titre'] ?>" style="max-height: 320px;">
+                                <img src="admin/assets/images/<?= $film['affiche'] ?>" class="img-fluid rounded shadow" alt="<?= $film['titre'] ?>" id="carousel-img">
                             </div>
                             <div class="col-md-7">
                                 <h3 class="text-warning mb-3"><?= $film['titre'] ?></h3>
@@ -49,7 +49,7 @@ $films_a_l_affiche = $vue_seances_films->getFilmsALAffiche(3);
     <hr class="my-5">
 
     <?php if ($next_seance): ?>
-        <div class="next-seance-box my-4 p-3 bg-dark text-white rounded shadow" style="max-width: 600px; margin: auto;">
+        <div class="next-seance-box my-4 p-3 bg-dark text-white rounded shadow">
             <h4 class="mb-3">🎬 Prochaine Séance</h4>
             <div class="d-flex align-items-center">
                 <img src="admin/assets/images/<?= $next_seance->getAffiche() ?>" alt="Affiche" class="me-3 next-seance-img">
