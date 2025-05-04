@@ -30,7 +30,11 @@ $seances = $vue_seances_films->getAllSeance();
             <?php endforeach; ?>
         </div>
     <?php else: ?>
-        <p class="text-muted">Aucune séance disponible pour le moment.</p>
+        <div class="col-4 mx-auto">
+            <div class="alert alert-warning text-center" role="alert">
+                Aucune séance disponible pour le moment.
+            </div>
+        </div>
     <?php endif; ?>
 </div>
 

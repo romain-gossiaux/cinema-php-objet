@@ -82,9 +82,6 @@ class Vue_seances_filmsDAO
             $stmt->execute();
             $retour = $stmt->fetch(PDO::FETCH_ASSOC);
             $this->_bd->commit();
-            if ($retour == -1) {
-                return -1;
-            }
             return new Vue_seances_films($retour);
         } catch (PDOException $e) {
             $this->_bd->rollBack();

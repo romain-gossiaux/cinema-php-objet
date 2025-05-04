@@ -13,6 +13,7 @@ $films_a_l_affiche = $vue_seances_films->getFilmsALAffiche(3);
 
     <hr class="my-5">
 
+    <?php if ($films_a_l_affiche): ?>
     <h2 class="text-light mb-4">À l'affiche</h2>
     <div class="row justify-content-center">
         <div id="carouselFilmsAffiche" class="carousel slide" data-bs-ride="carousel">
@@ -45,10 +46,10 @@ $films_a_l_affiche = $vue_seances_films->getFilmsALAffiche(3);
             </button>
         </div>
     </div>
-
+    <?php endif; ?>
     <hr class="my-5">
 
-    <?php if ($next_seance): ?>
+    <?php if ($next_seance->getIdSeance() != NULL):?>
         <div class="next-seance-box my-4 p-3 bg-dark text-white rounded shadow">
             <h4 class="mb-3">🎬 Prochaine Séance</h4>
             <div class="d-flex align-items-center">
