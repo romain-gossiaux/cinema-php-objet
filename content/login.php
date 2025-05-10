@@ -26,7 +26,7 @@ if(isset($_POST['login_submit'])){
             <input type="password" class="form-control" id="password" name="password">
         </div>
         <?php if (isset($message)) : ?>
-            <div class="alert alert-danger mt-3 col-3"><?= $message ?></div>
+            <div class="alert alert-danger mt-3"><?= $message ?></div>
         <?php endif; ?>
         <button type="submit" class="btn btn-warning" name="login_submit">Connexion</button>
     </form>
